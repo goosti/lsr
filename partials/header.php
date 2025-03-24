@@ -62,6 +62,8 @@
         }
         input{
             margin: 12px;
+            border-radius: 10px;
+            padding: 5px;
         }
     </style>
 </head>

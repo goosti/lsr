@@ -2,7 +2,7 @@
 require_once "./partials/header.php";
 include_once "./config/database.php";
 
-$fname = '';
+$fname = '';    // Vide les variables pour éviter les erreurs
 $lname = '';
 $email = '';
 $civilite = '';
@@ -10,9 +10,9 @@ $password = '';
 $errors = '';
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') { // Vérifie si c'est en méthode POST
 
-    $civilite = $_POST['civilite'] ?? '';
+    $civilite = $_POST['civilite'] ?? '';                           // Récupère ce qu'on met pour les transformer en variable
     $fname = htmlspecialchars(trim($_POST['firstname'] ?? ''));
     $lname = htmlspecialchars(trim($_POST['name'] ?? ''));
     $email = htmlspecialchars(trim($_POST['email'] ?? ''));
@@ -30,8 +30,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if(empty($errors)){
-        $hash_password = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO adherant(nom, prenom, email, password, civilite) VALUES (:nom, :prenom, :email, :password, :civilite)";
+        $hash_password = password_hash($password, PASSWORD_DEFAULT);    // Camoufle le mot de passe pour qu'il ne soit pas récupèrer par quelqu'un de trop curieux
+        $sql = "INSERT INTO adherant(nom, prenom, email, password, civilite) VALUES (:nom, :prenom, :email, :password, :civilite)"; // Modifie la table "adherant"
     
         $stmt = $db->prepare($sql);
 
@@ -43,11 +43,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt->execute();
 
-            header('Location: login.php');
+            header('Location: login.php');      // Redirige à la page "login.php"
             exit();
     }
 
-    if (empty($errors)) {
+    if (empty($errors)) {       // Si tout va bien, alors une confirmation est envoyé
         $message = htmlspecialchars(trim($_POST['message'] ?? ''));
         $message = 'Inscription réussie! Vérifiez votre e-mail pour confirmation.';
     }
@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <h2>Inscription</h2>
-    <form action="" method="POST">
+    <form action="" method="POST">      <!-- Formulaire d'inscription -->
         <input type="text" name="name" placeholder="Nom" required><br>
         <input type="text" name="firstname" placeholder="Prénom" required><br>
         <input type="email" name="email" placeholder="Email" required><br>
@@ -70,9 +70,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="radio" name="civilite" id="M" value="M"> <label for="M">M</label><br>
         <button type="submit" class="btn">S'inscrire</button>
     </form>
+    <?php require_once "./partials/footer.php" ?>
 </div>
 
 
 
 
-<?php require_once "./partials/footer.php" ?>

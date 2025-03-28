@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Email invalide.";
     } else {
-        // Simuler l'envoi (remplace par mail() si besoin)
+        // Simuler l'envoi
         $success = "Votre message a bien été envoyé !";
     }
 }
@@ -53,18 +53,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if ($success): ?>
         <p class="success"><?php echo $success; ?></p>
     <?php endif; ?>
-
+        <br>
+        <!-- Création d'un formulaire -->
     <form action="" method="post">
-        <label for="nom">Nom :</label>
+        <label for="nom">Nom :</label><br>
         <input type="text" name="nom" id="nom" value="<?php echo $nom; ?>" required><br><br>
 
-        <label for="email">Email :</label>
+        <label for="email">Email :</label><br>
         <input type="email" name="email" id="email" value="<?php echo $email; ?>" required><br><br>
 
-        <label for="sujet">Sujet :</label>
+        <label for="sujet">Sujet :</label><br>
         <input type="text" name="sujet" id="sujet" value="<?php echo $sujet; ?>" required><br><br>
 
-        <label for="message">Message :</label>
+        <label for="message">Message :</label><br>
         <textarea name="message" id="message" required><?php echo $message; ?></textarea><br><br>
 
         <button type="submit">Envoyer</button>
@@ -75,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 
 
+<?php require_once "./partials/footer.php";?>
 
 
 
@@ -82,5 +84,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-
-<?php require_once "./partials/header.php";

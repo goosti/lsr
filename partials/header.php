@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-size: large;
         }
 
         body {
@@ -65,11 +66,47 @@
             border-radius: 10px;
             padding: 5px;
         }
+        textarea{
+            border-radius: 10px;
+            padding: 5px;
+            padding-bottom: 35px;
+            margin-top: 10px;
+        }
+        .jour{
+            font-size: 22px;
+            margin-top: 20px;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .inscription{
+            margin-top: 25px;
+            cursor: pointer;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff5733;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10px;
+                transform: rotate(0deg);
+            }
+            100% {
+                top: 100vh;
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="./image/image.webp" alt="LSR28 Logo" style="max-width: 1250px; border-radius:25px; margin-bottom:20px;">
+        <?php //Le logo renvoie à l'accueil ?>
+        <a href="index.php"><img src="./image/image_logo.webp" alt="LSR28 Logo" style="max-width: 1250px; border-radius:25px; margin-bottom:20px;"></a>
         <div class="menu">
             <a href="./index.php">
                 <button>Accueil</button>

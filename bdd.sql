@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS lsr;
+CREATE DATABASE IF NOT EXISTS lsr;  /* Crée la database du nom de "lsr" */
 
-USE lsr;
+USE lsr;    /* Utilise la nouvelle database pour pouvoir la modifier */
 
-CREATE TABLE IF NOT EXISTS adherant
+CREATE TABLE IF NOT EXISTS adherant     /* Crée la table "adherant" avec ses valeurs */
 (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nom VARCHAR(255) NOT NULL,

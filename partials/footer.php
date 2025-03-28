@@ -1,6 +1,6 @@
-<footer style="background:#333; color:white; text-align:center; padding:20px; margin-top:2%;">
+<footer style="background:#333; color:white; text-align:center; padding:20px; margin-top:2%; border-radius:15px; margin-bottom:-10px;">
     <div class="footer-content">
-        <p>&copy; <?php echo date("Y"); ?> - Tous droits réservés | MonSite.com</p>
+        <p>&copy; <?php echo date("Y"); ?> - Tous droits réservés | association-lsr28.com</p>
 
         <nav>
             <a href="index.php" style="color:white; margin: 0 10px;">Accueil</a>
